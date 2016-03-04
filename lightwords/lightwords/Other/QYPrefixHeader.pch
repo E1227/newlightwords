@@ -1,0 +1,137 @@
+//
+//  QYPrefixHeader.pch
+//  lightwords
+//
+//  Created by wangxiangyu on 16/3/1.
+//  Copyright © 2016年 com.qingyu. All rights reserved.
+//
+
+#ifndef QYPrefixHeader_pch
+#define QYPrefixHeader_pch
+
+#pragma mark 引入第三方库
+#import <Masonry.h>
+#import <AFNetworking.h>
+#import <MJRefresh/MJRefresh.h>
+#import <ReactiveCocoa.h>
+#import <RESideMenu.h>
+#import <YYKit.h>
+#import "UIBarButtonItem+Extension.h"
+#import "QYNetManager.h"
+#import "NSDate+Formatter.h"
+#import "QYAPI.h" //引入接口定义
+#import "QYAlertViewController.h"
+
+
+#pragma mark -- 颜色
+// 随机数
+#define WArcNum(x) arc4random_uniform(x)
+// 颜色
+#define WColorRGB(r, g, b) WColorRGBA(r, g, b, 1.000f)
+#define WColorRGBA(r, g, b, a) [UIColor colorWithRed:(r) / 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha:(a)]
+// 随机颜色
+#define WArcColor WColorRGB(WArcNum(128) + 128, WArcNum(128) + 128, WArcNum(128) + 128)
+
+#define WColorFromRGB(rgbValue) \
+[UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+/**
+ *  标题文字颜色
+ */
+#define WColorFontTitle WColorRGB(38, 38, 38)
+/**
+ *  内容文字颜色
+ */
+#define WColorFontContent WColorRGB(115, 115, 115)
+/**
+ *  细节文字颜色
+ */
+#define WColorFontDetail WColorRGB(166, 166, 166)
+/**
+ *  主要颜色(绿)
+ */
+#define WColorMain WColorRGB(38, 204, 92)
+/**
+ *  辅助颜色(橙)
+ */
+#define WColorAssist WColorRGB(255, 180, 0)
+/**
+ *  提醒颜色(红)
+ */
+#define WColorAlert WColorRGB(234, 86, 66)
+/**
+ *  背景颜色
+ */
+#define WColorBg WColorRGB(239, 239, 244)
+/**
+ *  导航条颜色
+ */
+#define WColorNavBg WColorRGB(255, 255, 255)
+/**
+ *  浅灰色 透明度
+ */
+#define WColorLightGray WColorRGB(242, 242, 242)
+/**
+ *  深灰色 透明度
+ */
+#define WColorDarkGray WColorRGB(166, 166, 166)
+
+
+#pragma mark -- 其他数值
+
+//-------------------获取设备大小-------------------------
+// NavBar高度
+#define WNavigationBarHeight (64.0)
+// 状态栏高度
+#define WStatusBarHeight (20.0)
+// 顶部高度
+#define WTopHeight (WNavigationBarHeight + WStatusBarHeight)
+// 底部 TabBar 高度
+#define WTabBarHeight 49
+// 动态获取屏幕宽高
+#define WScreenHeight ([UIScreen mainScreen].bounds.size.height)
+#define WScreenWidth ([UIScreen mainScreen].bounds.size.width)
+// 默认按钮高度
+#define WButtonHeight 48
+// 弹出框距左右边距
+#define WLeftPedding 25
+// 普通视图左右边距
+#define WPedding 16
+
+// 弹出框动画时间
+#define WAnimationTime 0.25f
+// 提示框弹出时间
+#define WAlertViewPopTime 0.15f
+// 提示框显示时间
+#define WAlertViewShowTime 2.5f
+// 圆角
+#define WCornerRadius 4.0f
+//字体大小
+#define subTitleFont [UIFont systemFontOfSize:12.0]
+
+//检查系统版本
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+// 是否输出 Log
+#define isShowLog 1
+#if isShowLog
+#define WLog(Format, ...) fprintf(stderr,"%s: %s->%d\n%s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __FUNCTION__, __LINE__, [[NSString stringWithFormat:Format, ##__VA_ARGS__] UTF8String])
+#else
+#define WLog(Format, ...)
+#endif
+
+#pragma mark -- 链接和 key
+
+
+
+
+
+
+
+#endif /* QYPrefixHeader_pch */
