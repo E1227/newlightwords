@@ -83,10 +83,12 @@
 		C59197801C8587030072B3C9 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C591977F1C8587030072B3C9 /* UIBarButtonItem+Extension.m */; };
 		C59197831C858C2E0072B3C9 /* QYTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C59197821C858C2E0072B3C9 /* QYTabBar.m */; };
 		C59952931C87E02300A8B9B6 /* QYFocusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C59952921C87E02300A8B9B6 /* QYFocusViewController.m */; };
-		C59952971C87E42B00A8B9B6 /* QYFocusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C59952961C87E42B00A8B9B6 /* QYFocusModel.m */; };
 		C59952A21C89127A00A8B9B6 /* QYLatestNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C599529F1C89127A00A8B9B6 /* QYLatestNewsCell.m */; };
 		C59952A31C89127A00A8B9B6 /* QYLatestNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C59952A11C89127A00A8B9B6 /* QYLatestNewsViewController.m */; };
 		C59952A61C89130D00A8B9B6 /* QYBrowseImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C59952A51C89130D00A8B9B6 /* QYBrowseImageView.m */; };
+		C59952AF1C896A8C00A8B9B6 /* QYFocusNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C59952AE1C896A8C00A8B9B6 /* QYFocusNewsCell.m */; };
+		C59952B21C897CBF00A8B9B6 /* QYFocusContentList.m in Sources */ = {isa = PBXBuildFile; fileRef = C59952B11C897CBF00A8B9B6 /* QYFocusContentList.m */; };
+		C59952B51C897CD900A8B9B6 /* QYFocusImageUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = C59952B41C897CD900A8B9B6 /* QYFocusImageUrl.m */; };
 		FA64D20D1C893B7300C41C22 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA64D20C1C893B7300C41C22 /* Info.plist */; };
 		FA9C0CC91C8926AB0070EBE2 /* QYAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9C0CC81C8926AB0070EBE2 /* QYAlertViewController.m */; };
 		FAA0E6C2E2AEA9211E63FD27 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C803BAA515F4CF9C3BCC704 /* libPods.a */; };
@@ -248,14 +250,18 @@
 		C59197821C858C2E0072B3C9 /* QYTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYTabBar.m; sourceTree = "<group>"; };
 		C59952911C87E02300A8B9B6 /* QYFocusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYFocusViewController.h; sourceTree = "<group>"; };
 		C59952921C87E02300A8B9B6 /* QYFocusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYFocusViewController.m; sourceTree = "<group>"; };
-		C59952951C87E42B00A8B9B6 /* QYFocusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYFocusModel.h; sourceTree = "<group>"; };
-		C59952961C87E42B00A8B9B6 /* QYFocusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYFocusModel.m; sourceTree = "<group>"; };
 		C599529E1C89127A00A8B9B6 /* QYLatestNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYLatestNewsCell.h; sourceTree = "<group>"; };
 		C599529F1C89127A00A8B9B6 /* QYLatestNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYLatestNewsCell.m; sourceTree = "<group>"; };
 		C59952A01C89127A00A8B9B6 /* QYLatestNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYLatestNewsViewController.h; sourceTree = "<group>"; };
 		C59952A11C89127A00A8B9B6 /* QYLatestNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYLatestNewsViewController.m; sourceTree = "<group>"; };
 		C59952A41C89130D00A8B9B6 /* QYBrowseImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYBrowseImageView.h; sourceTree = "<group>"; };
 		C59952A51C89130D00A8B9B6 /* QYBrowseImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYBrowseImageView.m; sourceTree = "<group>"; };
+		C59952AD1C896A8C00A8B9B6 /* QYFocusNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYFocusNewsCell.h; sourceTree = "<group>"; };
+		C59952AE1C896A8C00A8B9B6 /* QYFocusNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYFocusNewsCell.m; sourceTree = "<group>"; };
+		C59952B01C897CBF00A8B9B6 /* QYFocusContentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYFocusContentList.h; sourceTree = "<group>"; };
+		C59952B11C897CBF00A8B9B6 /* QYFocusContentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYFocusContentList.m; sourceTree = "<group>"; };
+		C59952B31C897CD900A8B9B6 /* QYFocusImageUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYFocusImageUrl.h; sourceTree = "<group>"; };
+		C59952B41C897CD900A8B9B6 /* QYFocusImageUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYFocusImageUrl.m; sourceTree = "<group>"; };
 		CE940EB6CC0F356F4F080403 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FA64D20C1C893B7300C41C22 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA9C0CC71C8926AB0070EBE2 /* QYAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYAlertViewController.h; sourceTree = "<group>"; };
@@ -315,6 +321,8 @@
 			children = (
 				C59952911C87E02300A8B9B6 /* QYFocusViewController.h */,
 				C59952921C87E02300A8B9B6 /* QYFocusViewController.m */,
+				C59952AD1C896A8C00A8B9B6 /* QYFocusNewsCell.h */,
+				C59952AE1C896A8C00A8B9B6 /* QYFocusNewsCell.m */,
 			);
 			name = "Focus(焦点)";
 			sourceTree = "<group>";
@@ -738,8 +746,10 @@
 		C59952941C87E3C800A8B9B6 /* Focus(焦点) */ = {
 			isa = PBXGroup;
 			children = (
-				C59952951C87E42B00A8B9B6 /* QYFocusModel.h */,
-				C59952961C87E42B00A8B9B6 /* QYFocusModel.m */,
+				C59952B01C897CBF00A8B9B6 /* QYFocusContentList.h */,
+				C59952B11C897CBF00A8B9B6 /* QYFocusContentList.m */,
+				C59952B31C897CD900A8B9B6 /* QYFocusImageUrl.h */,
+				C59952B41C897CD900A8B9B6 /* QYFocusImageUrl.m */,
 			);
 			name = "Focus(焦点)";
 			sourceTree = "<group>";
@@ -870,7 +880,6 @@
 				C59197631C8574250072B3C9 /* UIView+Animation.m in Sources */,
 				C59197481C8574250072B3C9 /* UIButton+BackgroundColor.m in Sources */,
 				C59197371C8574250072B3C9 /* NSObject+AppInfo.m in Sources */,
-				C59952971C87E42B00A8B9B6 /* QYFocusModel.m in Sources */,
 				C59197311C8574250072B3C9 /* NSDate+Reporting.m in Sources */,
 				C59197461C8574250072B3C9 /* UIApplication+ApplicationSize.m in Sources */,
 				C59197301C8574250072B3C9 /* NSDate+Helper.m in Sources */,
@@ -895,6 +904,7 @@
 				C591975F1C8574250072B3C9 /* UINavigationItem+Lock.m in Sources */,
 				C59197711C8574250072B3C9 /* NSString+WPAttributedMarkup.m in Sources */,
 				C59197651C8574250072B3C9 /* UIView+Borders.m in Sources */,
+				C59952B21C897CBF00A8B9B6 /* QYFocusContentList.m in Sources */,
 				C59197491C8574250072B3C9 /* UIButton+Submitting.m in Sources */,
 				C591973A1C8574250072B3C9 /* NSObject+KVOBlocks.m in Sources */,
 				C59197591C8574250072B3C9 /* UIImageView+Letters.m in Sources */,
@@ -917,6 +927,7 @@
 				C59197611C8574250072B3C9 /* UIScrollView+TwitterCover.m in Sources */,
 				C591975B1C8574250072B3C9 /* UINavigationController+BATransitions.m in Sources */,
 				C59197411C8574250072B3C9 /* NSString+Trims.m in Sources */,
+				C59952AF1C896A8C00A8B9B6 /* QYFocusNewsCell.m in Sources */,
 				C591975C1C8574250072B3C9 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				C59197321C8574250072B3C9 /* NSDate+Utilities.m in Sources */,
 				C56B8F381C86C35D00A1E454 /* QYNetManager.m in Sources */,
@@ -943,6 +954,7 @@
 				C59197441C8574250072B3C9 /* NSTimer+Blocks.m in Sources */,
 				C591973F1C8574250072B3C9 /* NSString+RegexCategory.m in Sources */,
 				C591976E1C8574250072B3C9 /* UIViewController+BackButtonItemTitle.m in Sources */,
+				C59952B51C897CD900A8B9B6 /* QYFocusImageUrl.m in Sources */,
 				C59197831C858C2E0072B3C9 /* QYTabBar.m in Sources */,
 				C591975D1C8574250072B3C9 /* UINavigationController+JZExtension.m in Sources */,
 				C59197681C8574250072B3C9 /* UIView+Screenshot.m in Sources */,

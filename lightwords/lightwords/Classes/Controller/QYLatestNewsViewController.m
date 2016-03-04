@@ -78,7 +78,7 @@
     [QYNetManager getDataWithParam:nil andPath:url andComplete:^(BOOL success, id result) {
         if (success) {
             
-            NSLog(@"%@",result);
+           // NSLog(@"%@",result);
             
         }else {
             

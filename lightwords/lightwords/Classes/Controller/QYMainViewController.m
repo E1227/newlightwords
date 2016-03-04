@@ -10,7 +10,7 @@
 #import "QYNavigationController.h"
 #import "QYTabBar.h"
 #import "QYLatestNewsViewController.h"
-
+#import "QYFocusViewController.h"
 @interface QYMainViewController ()
 
 @end
@@ -25,8 +25,8 @@
     //设置tabbar item的appearance
     [self setTabBarItemAppearance];
     //添加4个控制器
-    UIViewController * vc1=[[UIViewController alloc]init];
-    [self setChildVc:vc1:@"精华" :@"tabBar_essence_icon":@"tabBar_essence_click_icon"];
+    
+    [self setChildVc:[QYFocusViewController new]:@"精华" :@"tabBar_essence_icon":@"tabBar_essence_click_icon"];
     [self setChildVc:[QYLatestNewsViewController new]:@"最新" : @"tabBar_new_icon":@"tabBar_new_click_icon"];
     [self setChildVc:[UIViewController new] :@"关注" : @"tabBar_friendTrends_icon":@"tabBar_friendTrends_click_icon"];
     [self setChildVc:[UIViewController new] :@"我" :@"tabBar_me_icon" :@"tabBar_me_click_icon"];
