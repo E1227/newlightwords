@@ -33,7 +33,7 @@
         [self addSubview:closeBtn];
         
         [closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-           
+            
             make.bottom.equalTo(@-20);
             make.left.equalTo(@100);
             make.right.equalTo(@-100);
@@ -75,8 +75,8 @@
         cardView.transform = CGAffineTransformMakeScale(1-0.05*j, 1-0.05*j);
         
         cardView.transform = CGAffineTransformTranslate(cardView.transform, 0, j*15);
-        cardView.backgroundColor = _cardArr[i];
-        //        cardView.image = _cardArr[i];
+        //        cardView.backgroundColor = _cardArr[i];
+        [cardView setImageWithURL:[NSURL URLWithString: _cardArr[i]] placeholder:[UIImage imageNamed:@"user_placeholder"]];
         _tmpPoint = cardView.center;
         [self addSubview:cardView];
         UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panHandle:)];
@@ -106,7 +106,7 @@
     }
     else if (pan.state == UIGestureRecognizerStateEnded) {
         CGPoint last = [pan velocityInView:self];
-            if (last.x > 200 || last.x < -200) {
+        if (last.x > 200 || last.x < -200) {
             [UIView animateWithDuration:.3 animations:^{
                 pan.view.center = CGPointMake(last.x, last.y);
                 pan.view.alpha = 0;
