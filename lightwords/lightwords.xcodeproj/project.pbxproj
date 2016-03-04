@@ -88,6 +88,8 @@
 		C59952A31C89127A00A8B9B6 /* QYLatestNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C59952A11C89127A00A8B9B6 /* QYLatestNewsViewController.m */; };
 		C59952A61C89130D00A8B9B6 /* QYBrowseImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C59952A51C89130D00A8B9B6 /* QYBrowseImageView.m */; };
 		FA64D20D1C893B7300C41C22 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA64D20C1C893B7300C41C22 /* Info.plist */; };
+		FA64D21A1C8970E900C41C22 /* QYImageURL.m in Sources */ = {isa = PBXBuildFile; fileRef = FA64D2171C8970E900C41C22 /* QYImageURL.m */; };
+		FA64D21B1C8970E900C41C22 /* QYLatestNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA64D2191C8970E900C41C22 /* QYLatestNewsModel.m */; };
 		FA9C0CC91C8926AB0070EBE2 /* QYAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9C0CC81C8926AB0070EBE2 /* QYAlertViewController.m */; };
 		FAA0E6C2E2AEA9211E63FD27 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C803BAA515F4CF9C3BCC704 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -258,6 +260,10 @@
 		C59952A51C89130D00A8B9B6 /* QYBrowseImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYBrowseImageView.m; sourceTree = "<group>"; };
 		CE940EB6CC0F356F4F080403 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FA64D20C1C893B7300C41C22 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA64D2161C8970E900C41C22 /* QYImageURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYImageURL.h; sourceTree = "<group>"; };
+		FA64D2171C8970E900C41C22 /* QYImageURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYImageURL.m; sourceTree = "<group>"; };
+		FA64D2181C8970E900C41C22 /* QYLatestNewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYLatestNewsModel.h; sourceTree = "<group>"; };
+		FA64D2191C8970E900C41C22 /* QYLatestNewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYLatestNewsModel.m; sourceTree = "<group>"; };
 		FA9C0CC71C8926AB0070EBE2 /* QYAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYAlertViewController.h; sourceTree = "<group>"; };
 		FA9C0CC81C8926AB0070EBE2 /* QYAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYAlertViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -372,6 +378,7 @@
 		C59196831C856E5E0072B3C9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FA64D2151C8970CC00C41C22 /* New(最新) */,
 				C59952941C87E3C800A8B9B6 /* Focus(焦点) */,
 			);
 			path = Model;
@@ -744,6 +751,17 @@
 			name = "Focus(焦点)";
 			sourceTree = "<group>";
 		};
+		FA64D2151C8970CC00C41C22 /* New(最新) */ = {
+			isa = PBXGroup;
+			children = (
+				FA64D2161C8970E900C41C22 /* QYImageURL.h */,
+				FA64D2171C8970E900C41C22 /* QYImageURL.m */,
+				FA64D2181C8970E900C41C22 /* QYLatestNewsModel.h */,
+				FA64D2191C8970E900C41C22 /* QYLatestNewsModel.m */,
+			);
+			name = "New(最新)";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -911,6 +929,7 @@
 				C591972F1C8574250072B3C9 /* NSDate+Formatter.m in Sources */,
 				C59197421C8574250072B3C9 /* NSString+UrlEncode.m in Sources */,
 				C59197501C8574250072B3C9 /* UIImage+Color.m in Sources */,
+				FA64D21A1C8970E900C41C22 /* QYImageURL.m in Sources */,
 				C59197341C8574250072B3C9 /* NSDictionary+Merge.m in Sources */,
 				C59952A21C89127A00A8B9B6 /* QYLatestNewsCell.m in Sources */,
 				C59952A31C89127A00A8B9B6 /* QYLatestNewsViewController.m in Sources */,
@@ -924,6 +943,7 @@
 				C59197511C8574250072B3C9 /* UIImage+FileName.m in Sources */,
 				C591974B1C8574250072B3C9 /* UIControl+ActionBlocks.m in Sources */,
 				C59952931C87E02300A8B9B6 /* QYFocusViewController.m in Sources */,
+				FA64D21B1C8970E900C41C22 /* QYLatestNewsModel.m in Sources */,
 				C59197701C8574250072B3C9 /* NSMutableString+TagReplace.m in Sources */,
 				C59197331C8574250072B3C9 /* NSDictionary+JSONString.m in Sources */,
 				C59197541C8574250072B3C9 /* UIImage+RoundedCorner.m in Sources */,

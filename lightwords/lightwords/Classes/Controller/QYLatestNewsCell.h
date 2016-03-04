@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QYLatestNewsModel.h"
 
 @interface QYLatestNewsCell : UITableViewCell
 
+
+@property (nonatomic ,strong)QYLatestNewsModel *model;
 
 + (instancetype)latestNewsCellWithTableView:(UITableView *)tableView identifier:(NSString *)identifier;
 

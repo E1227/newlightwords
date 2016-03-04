@@ -8,28 +8,37 @@
 
 #import "QYLatestNewsViewController.h"
 #import "QYLatestNewsCell.h"
+#import "QYLatestNewsModel.h"
 
 @interface QYLatestNewsViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic ,weak)UITableView *tableView;
 
+@property (nonatomic ,strong)NSMutableArray *dataArray;
+
+
 @end
 
 @implementation QYLatestNewsViewController
 
+- (NSMutableArray *)dataArray
+{
+    if (_dataArray == nil) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         self.view.backgroundColor = [UIColor whiteColor];
         
 #warning 设置分类按钮
-//        self.navigationItem.titleView = [[UIView alloc]init];
+        //        self.navigationItem.titleView = [[UIView alloc]init];
         
         // 暂时显示
         self.navigationItem.title = @"最新";
         self.automaticallyAdjustsScrollViewInsets = NO;
-        
-        [self loadSubViews];
         
         
         
@@ -48,7 +57,7 @@
     
     // 添加约束
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-
+        
         make.top.equalTo(@64);
         make.top.equalTo(@WNavigationBarHeight);
         make.top.equalTo(@64);
@@ -57,8 +66,9 @@
         
     }];
     
-    tableView.backgroundColor = WArcColor;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
     
+    [self.tableView.mj_header beginRefreshing];
     
 }
 
@@ -66,19 +76,53 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self loadData];
+    [self loadSubViews];
+    
     
     
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
 - (void)loadData {
     
-    NSString * url = @"http://route.showapi.com/109-35?showapi_appid=16332&showapi_sign=025a4f865952403eb0c8f1aa67c3c171&showapi_timestamp=20160304102011&channelId=5572a108b3cdc86cf39001d8";
+    NSString * url = @"http://route.showapi.com/109-35";
     
-    [QYNetManager getDataWithParam:nil andPath:url andComplete:^(BOOL success, id result) {
+    NSDate * date = [NSDate date];
+    
+    NSDateFormatter * formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyyMMddHHmmss"];
+    NSString * dateStr = [formatter stringFromDate:date];
+    
+    
+    NSDictionary * parametes = @{
+                                 @"showapi_appid":@"16332",
+                                 @"showapi_sign":@"025a4f865952403eb0c8f1aa67c3c171",
+                                 @"showapi_timestamp":dateStr,
+                                 @"channelId":@"5572a108b3cdc86cf39001d8",
+                                 
+                                 };
+    
+    [QYNetManager getDataWithParam:parametes andPath:url andComplete:^(BOOL success, NSDictionary * result) {
         if (success) {
             
-            NSLog(@"%@",result);
+            [self.dataArray removeAllObjects];
+            
+            NSArray * array = result[@"showapi_res_body"][@"pagebean"][@"contentlist"];
+            
+            for (NSDictionary * dict in array) {
+                
+                QYLatestNewsModel * model = [QYLatestNewsModel modelWithDictionary:dict];
+                
+                [self.dataArray addObject:model];
+                
+            }
+            
+            [self.tableView reloadData];
+            [self.tableView.mj_header endRefreshing];
             
         }else {
             
@@ -95,7 +139,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -104,12 +148,7 @@
     
     QYLatestNewsCell *cell = [QYLatestNewsCell latestNewsCellWithTableView:tableView identifier:reusableId];
     
-
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
-    
-
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.model = self.dataArray[indexPath.row];
     
     return cell;
 }
@@ -128,3 +167,5 @@
 
 
 @end
+
+
