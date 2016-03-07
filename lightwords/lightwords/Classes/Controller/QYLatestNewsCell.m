@@ -68,11 +68,12 @@
     
     UIImageView * picture = [[UIImageView alloc]init];
     self.picture = picture;
-    picture.userInteractionEnabled = YES;
+//    picture.image = [UIImage imageNamed:@"user_placeholder"];
+//    picture.userInteractionEnabled = YES;
     
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(browseImage:)];
-    [picture addGestureRecognizer:tap];
+    // 取消点击手势
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(browseImage:)];
+//    [picture addGestureRecognizer:tap];
     
     [self.contentView addSubview:picture];
     [picture mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -150,8 +151,6 @@
         [browse show];
     }
     
-    
-    
 }
 
 - (void)setModel:(QYLatestNewsModel *)model
@@ -168,21 +167,14 @@
         
         QYImageURL * urlModel = [model.imageurls firstObject];
         
-        [self.picture setImageWithURL:[NSURL URLWithString:urlModel.url] placeholder:[UIImage imageNamed:@"arrow"] options:YYWebImageOptionSetImageWithFadeAnimation progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-            
-        } transform:^UIImage *(UIImage *image, NSURL *url) {
-            
-            image = [image imageByResizeToSize:CGSizeMake(QYImageHeight, QYImageHeight) contentMode:UIViewContentModeCenter];
-            return [image imageByRoundCornerRadius:10];
-            
-        } completion:^(UIImage *image, NSURL *url, YYWebImageFromType from, YYWebImageStage stage, NSError *error) {
-            
-        }];
+        [self.picture setImageWithURL:[NSURL URLWithString:urlModel.url] placeholder:[UIImage imageNamed:@"user_placeholder"]];
         
         
     }else {
         
         self.picture.image = [UIImage imageNamed:@"user_placeholder"];
+        
+        WLog(@"picture");
     }
     
     
@@ -200,6 +192,8 @@
     [self.contentView addSubview:label];
     return label;
 }
+
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
