@@ -14,9 +14,7 @@
 @interface QYLatestNewsCollectionViewCell ()<UITableViewDataSource,UITableViewDelegate>
 
 
-@property (nonatomic ,strong)NSMutableArray *dataArray;
 
-@property (nonatomic ,weak)UITableView *tableView;
 
 @end
 
@@ -39,8 +37,8 @@
         
         UITableView * tableView = [[UITableView alloc]initWithFrame:self.bounds style:UITableViewStylePlain];
         [self.contentView addSubview:tableView];
-        
-        
+        tableView.backgroundColor = [UIColor colorWithWhite:1 alpha:1];
+        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
         self.tableView = tableView;
         [tableView.mj_header beginRefreshing];
@@ -72,7 +70,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 160;
+    return 290;
 }
 
 
@@ -91,8 +89,7 @@
                                  @"showapi_appid":@"16332",
                                  @"showapi_sign":@"025a4f865952403eb0c8f1aa67c3c171",
                                  @"showapi_timestamp":dateStr,
-                                 @"channelId":@"5572a108b3cdc86cf39001d8",
-                                 
+                                 @"channelId":self.channelId
                                  };
     
     [QYNetManager getDataWithParam:parametes andPath:url andComplete:^(BOOL success, NSDictionary * result) {
@@ -111,11 +108,10 @@
             }
             
             [self.tableView reloadData];
-            [self.tableView.mj_header endRefreshing];
-            
+            [self.tableView.mj_header endRefreshing];            
         }else {
             
-            //            [QYAlertViewController qyAlertViewControllerFrom:self andTitle:@"失败" message:@"请检查网络" cancleBtnName:@"确定" otherAction:nil handler:nil];
+            [QYAlertViewController showTitle:@"刷新失败" message:@"请检查网络"];
             
         }
         

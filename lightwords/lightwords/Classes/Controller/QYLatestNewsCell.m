@@ -9,9 +9,9 @@
 #import "QYLatestNewsCell.h"
 #import "QYBrowseImageView.h"
 
-#define QYImageWidth 90
-#define QYImageHeight 70
-#define QYCellMargin 20
+#define QYImageHeight 180
+#define QYCellMargin 10
+#define QYContainerMargin 10
 
 
 @interface QYLatestNewsCell()
@@ -20,7 +20,6 @@
 @property (nonatomic ,weak)UIImageView *picture;
 @property (nonatomic ,weak)UILabel *fromLabel;
 @property (nonatomic ,weak)UILabel *timeLabel;
-@property (nonatomic ,weak)UILabel *descLabel;
 @property (nonatomic ,weak)UILabel *channelNameLabel;
 
 @end
@@ -40,7 +39,7 @@
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
-        
+        self.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self loadSubViews];
         
@@ -50,67 +49,64 @@
 
 - (void)loadSubViews {
     
+    UIView * container = [[UIView alloc]init];
     
+    [self.contentView addSubview:container];
     
-    
-    
-    UILabel * titleLabel = [self labelWithText:nil textColor:WColorFontTitle font:[UIFont systemFontOfSize:15]];
-    self.titleLabel = titleLabel;
-    
-    [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    container.backgroundColor = [UIColor whiteColor];
+    [container mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.top.left.equalTo(@(QYContainerMargin));
+        make.bottom.right.equalTo(@(-QYContainerMargin));
         
-        make.top.equalTo(@(QYCellMargin));
-        make.left.equalTo(@(QYCellMargin));
-        make.right.equalTo(@(QYCellMargin));
         
     }];
     
-    
     UIImageView * picture = [[UIImageView alloc]init];
     self.picture = picture;
-//    picture.image = [UIImage imageNamed:@"user_placeholder"];
-//    picture.userInteractionEnabled = YES;
-    
-    // 取消点击手势
-//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(browseImage:)];
-//    [picture addGestureRecognizer:tap];
-    
-    [self.contentView addSubview:picture];
+    picture.contentMode = UIViewContentModeScaleAspectFit;
+    [container addSubview:picture];
     [picture mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.top.equalTo(titleLabel.mas_bottom).offset(10);
+        make.top.left.equalTo(@(QYCellMargin));
         make.right.equalTo(@(-QYCellMargin));
-        make.width.equalTo(@(QYImageWidth));
         make.height.equalTo(@(QYImageHeight));
         
         
     }];
     
-    UILabel *descLabel = [self labelWithText:nil textColor:WColorFontContent font:[UIFont systemFontOfSize:13]];
-    self.descLabel = descLabel;
+    UILabel * titleLabel = [self labelWithText:nil textColor:WColorFontTitle font:[UIFont systemFontOfSize:15]];
+    self.titleLabel = titleLabel;
+    [container addSubview:titleLabel];
     
-    [descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.top.equalTo(titleLabel.mas_bottom).offset(10);
-        make.left.equalTo(@(QYCellMargin * 1.5));
-        make.right.equalTo(picture.mas_left).offset(-15);
-        make.bottom.equalTo(picture.mas_bottom).offset(-5);
+        make.top.equalTo(picture.mas_bottom).offset(QYCellMargin);
+        make.left.equalTo(@(QYCellMargin * 2));
+        make.right.equalTo(@(-QYCellMargin * 2));
         
     }];
     
     
+   
+    
+    
     UILabel * fromLabel = [self labelWithText:nil textColor:[UIColor grayColor] font:[UIFont systemFontOfSize:11]];
+    
+    [container addSubview:fromLabel];
     self.fromLabel = fromLabel;
     
     [fromLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.top.equalTo(picture.mas_bottom).offset(5);
+        make.top.equalTo(titleLabel.mas_bottom).offset(QYCellMargin * 1.5);
         make.left.equalTo(@(QYCellMargin));
         make.height.equalTo(@15);
         
     }];
     
     UILabel *timeLabel = [self labelWithText:nil textColor:[UIColor grayColor] font:[UIFont systemFontOfSize:11]];
+    
+    [container addSubview:timeLabel];
     self.timeLabel = timeLabel;
     [timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -120,6 +116,8 @@
     }];
     
     UILabel *channelNameLabel = [self labelWithText:nil textColor:[UIColor darkGrayColor] font:[UIFont systemFontOfSize:12 weight:3]];
+    
+    [container addSubview:channelNameLabel];
     channelNameLabel.textAlignment = NSTextAlignmentRight;
     [channelNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -158,7 +156,6 @@
     _model = model;
     
     self.titleLabel.text = model.title;
-    self.descLabel.text = model.desc;
     self.timeLabel.text = model.pubDate;
     self.channelNameLabel.text = model.channelName;
     self.fromLabel.text = model.source;
@@ -174,7 +171,6 @@
         
         self.picture.image = [UIImage imageNamed:@"user_placeholder"];
         
-        WLog(@"picture");
     }
     
     
@@ -185,11 +181,11 @@
 - (UILabel *)labelWithText:(NSString *)text textColor:(UIColor *)color font:(UIFont *)font
 {
     UILabel * label = [[UILabel alloc]init];
+    label.textAlignment = NSTextAlignmentCenter;
     label.text = text;
     label.textColor = color;
     label.font = font;
     label.numberOfLines = 0;
-    [self.contentView addSubview:label];
     return label;
 }
 

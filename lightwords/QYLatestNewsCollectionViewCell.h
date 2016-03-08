@@ -10,4 +10,14 @@
 
 @interface QYLatestNewsCollectionViewCell : UICollectionViewCell
 
+
+
+@property (nonatomic ,copy)NSString *channelId;
+
+@property (nonatomic ,weak)UITableView *tableView;
+
+@property (nonatomic ,strong)NSMutableArray *dataArray;
+- (void)loadData;
+
+
 @end
