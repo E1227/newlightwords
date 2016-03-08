@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "QYFocusContentList.h"
 @interface QYFocusNewsCell : UITableViewCell
+@property (nonatomic,strong) QYFocusContentList *model;
 +(instancetype)focusNewsCellWithTableView:(UITableView *)tableView reuseIdentifier:(NSString *)reuseIdentifier;
 @end

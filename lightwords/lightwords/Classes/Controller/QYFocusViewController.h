@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QYFocusViewController : UITableViewController
+@interface QYFocusViewController : UIViewController
 
 @end
