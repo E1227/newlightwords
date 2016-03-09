@@ -23,6 +23,11 @@
  */
 + (void)qyAlertViewControllerFrom:(UIViewController *)controller andTitle:(NSString *)title message:(NSString *)message cancleBtnName:(NSString *)cancleBtnName otherAction:(NSString *)actionName handler:(void (^)(UIAlertAction *action))handler;
 
+
+
++ (void)showTitle:(NSString *)title message:(NSString *)message ;
+
+
 // sheet 样式需要再添加
 
 @end

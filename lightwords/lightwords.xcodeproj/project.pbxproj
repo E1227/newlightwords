@@ -92,7 +92,6 @@
 		C59952AF1C896A8C00A8B9B6 /* QYFocusNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C59952AE1C896A8C00A8B9B6 /* QYFocusNewsCell.m */; };
 		C59952B21C897CBF00A8B9B6 /* QYFocusContentList.m in Sources */ = {isa = PBXBuildFile; fileRef = C59952B11C897CBF00A8B9B6 /* QYFocusContentList.m */; };
 		C59952B51C897CD900A8B9B6 /* QYFocusImageUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = C59952B41C897CD900A8B9B6 /* QYFocusImageUrl.m */; };
-		FA64D20D1C893B7300C41C22 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA64D20C1C893B7300C41C22 /* Info.plist */; };
 		FA64D21A1C8970E900C41C22 /* QYImageURL.m in Sources */ = {isa = PBXBuildFile; fileRef = FA64D2171C8970E900C41C22 /* QYImageURL.m */; };
 		FA64D21B1C8970E900C41C22 /* QYLatestNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA64D2191C8970E900C41C22 /* QYLatestNewsModel.m */; };
 		FA64D2211C8D99BA00C41C22 /* QYNewsClassPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA64D2201C8D99BA00C41C22 /* QYNewsClassPickView.m */; };
@@ -867,7 +866,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA64D20D1C893B7300C41C22 /* Info.plist in Resources */,
 				C59196771C856C850072B3C9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1058,7 +1056,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1095,7 +1093,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1111,6 +1109,7 @@
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/lightwords/Other/QYPrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/lightwords/Other/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qingyu.lightwords;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1126,6 +1125,7 @@
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/lightwords/Other/QYPrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/lightwords/Other/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qingyu.lightwords;
 				PRODUCT_NAME = "$(TARGET_NAME)";
