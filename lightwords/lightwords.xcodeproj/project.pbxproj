@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C53585571C8EB00A00211BE8 /* QYFocusDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C53585561C8EB00A00211BE8 /* QYFocusDetailViewController.m */; };
+		C535855A1C8EBBC600211BE8 /* QYFocusDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = C53585591C8EBBC600211BE8 /* QYFocusDetail.m */; };
+		C535855D1C8EBBF800211BE8 /* QYFocusDetailImageUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = C535855C1C8EBBF800211BE8 /* QYFocusDetailImageUrl.m */; };
 		C56B8F381C86C35D00A1E454 /* QYNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C56B8F371C86C35D00A1E454 /* QYNetManager.m */; };
 		C59196771C856C850072B3C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C59196761C856C850072B3C9 /* Assets.xcassets */; };
 		C591968D1C856E5E0072B3C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C59196891C856E5E0072B3C9 /* AppDelegate.m */; };
@@ -102,6 +105,12 @@
 		0C803BAA515F4CF9C3BCC704 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		101657C94FB52229EC6FF395 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C5032B691C868D7F0073D1B2 /* QYAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYAPI.h; sourceTree = "<group>"; };
+		C53585551C8EB00A00211BE8 /* QYFocusDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYFocusDetailViewController.h; sourceTree = "<group>"; };
+		C53585561C8EB00A00211BE8 /* QYFocusDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYFocusDetailViewController.m; sourceTree = "<group>"; };
+		C53585581C8EBBC600211BE8 /* QYFocusDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYFocusDetail.h; sourceTree = "<group>"; };
+		C53585591C8EBBC600211BE8 /* QYFocusDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYFocusDetail.m; sourceTree = "<group>"; };
+		C535855B1C8EBBF800211BE8 /* QYFocusDetailImageUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYFocusDetailImageUrl.h; sourceTree = "<group>"; };
+		C535855C1C8EBBF800211BE8 /* QYFocusDetailImageUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYFocusDetailImageUrl.m; sourceTree = "<group>"; };
 		C56B8F361C86C35D00A1E454 /* QYNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYNetManager.h; sourceTree = "<group>"; };
 		C56B8F371C86C35D00A1E454 /* QYNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYNetManager.m; sourceTree = "<group>"; };
 		C59196671C856C850072B3C9 /* lightwords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lightwords.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -335,6 +344,8 @@
 				C59952921C87E02300A8B9B6 /* QYFocusViewController.m */,
 				C59952AD1C896A8C00A8B9B6 /* QYFocusNewsCell.h */,
 				C59952AE1C896A8C00A8B9B6 /* QYFocusNewsCell.m */,
+				C53585551C8EB00A00211BE8 /* QYFocusDetailViewController.h */,
+				C53585561C8EB00A00211BE8 /* QYFocusDetailViewController.m */,
 			);
 			name = "Focus(焦点)";
 			sourceTree = "<group>";
@@ -764,6 +775,10 @@
 				C59952B11C897CBF00A8B9B6 /* QYFocusContentList.m */,
 				C59952B31C897CD900A8B9B6 /* QYFocusImageUrl.h */,
 				C59952B41C897CD900A8B9B6 /* QYFocusImageUrl.m */,
+				C53585581C8EBBC600211BE8 /* QYFocusDetail.h */,
+				C53585591C8EBBC600211BE8 /* QYFocusDetail.m */,
+				C535855B1C8EBBF800211BE8 /* QYFocusDetailImageUrl.h */,
+				C535855C1C8EBBF800211BE8 /* QYFocusDetailImageUrl.m */,
 			);
 			name = "Focus(焦点)";
 			sourceTree = "<group>";
@@ -923,6 +938,7 @@
 				C59197391C8574250072B3C9 /* NSObject+GCD.m in Sources */,
 				C591974D1C8574250072B3C9 /* UIImage+Blur.m in Sources */,
 				C59197531C8574250072B3C9 /* UIImage+Resize.m in Sources */,
+				C53585571C8EB00A00211BE8 /* QYFocusDetailViewController.m in Sources */,
 				C59197431C8574250072B3C9 /* NSTimer+Addition.m in Sources */,
 				C59197361C8574250072B3C9 /* NSDictionary+URL.m in Sources */,
 				C591973B1C8574250072B3C9 /* NSObject+Property.m in Sources */,
@@ -932,6 +948,7 @@
 				C59197601C8574250072B3C9 /* UINavigationItem+Margin.m in Sources */,
 				C59197471C8574250072B3C9 /* UIApplication+Permissions.m in Sources */,
 				C59197571C8574250072B3C9 /* UIImageView+BetterFace.m in Sources */,
+				C535855D1C8EBBF800211BE8 /* QYFocusDetailImageUrl.m in Sources */,
 				C59197351C8574250072B3C9 /* NSDictionary+SafeAccess.m in Sources */,
 				C591973E1C8574250072B3C9 /* NSString+MD5.m in Sources */,
 				C591976B1C8574250072B3C9 /* UIView+ViewController.m in Sources */,
@@ -990,6 +1007,7 @@
 				C591974F1C8574250072B3C9 /* UIImage+Capture.m in Sources */,
 				C591973C1C8574250072B3C9 /* NSObject+Runtime.m in Sources */,
 				C591976A1C8574250072B3C9 /* UIView+Shake.m in Sources */,
+				C535855A1C8EBBC600211BE8 /* QYFocusDetail.m in Sources */,
 				C591975E1C8574250072B3C9 /* UINavigationItem+Loading.m in Sources */,
 				C59197441C8574250072B3C9 /* NSTimer+Blocks.m in Sources */,
 				C591973F1C8574250072B3C9 /* NSString+RegexCategory.m in Sources */,

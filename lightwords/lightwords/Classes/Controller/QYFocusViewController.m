@@ -10,13 +10,14 @@
 #import "QYFocusViewController.h"
 #import "QYFocusNewsCell.h"
 #import "QYFocusContentList.h"
-
+#import "QYFocusDetail.h"
+#import "QYFocusDetailViewController.h"
 @interface  QYFocusViewController()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic ,weak)UITableView *tableView;
-
-@property (nonatomic ,strong)NSMutableArray *dataArray;
-
+@property (nonatomic ,strong)NSMutableArray<QYFocusContentList *> *dataArray;
+@property (nonatomic,strong)QYFocusDetail  *detailModel;
+@property (nonatomic,strong)QYFocusDetailViewController  *focusDetailVC;
 
 @end
 
@@ -30,6 +31,13 @@
     return _dataArray;
 }
 
+//-(NSMutableArray *)detailArray{
+//    if (_detailArray==nil) {
+//        _detailArray=[NSMutableArray array];
+//    }
+//    return _detailArray;
+//}
+
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         self.view.backgroundColor = [UIColor whiteColor];
@@ -38,7 +46,7 @@
         //        self.navigationItem.titleView = [[UIView alloc]init];
         
         // 暂时显示
-        self.navigationItem.title = @"最新";
+        self.navigationItem.title = @"焦点";
         self.automaticallyAdjustsScrollViewInsets = NO;
         
         
@@ -113,7 +121,7 @@
             [self.dataArray removeAllObjects];
             
             NSArray * array = result[@"showapi_res_body"][@"pagebean"][@"contentlist"];
-            
+        
             for (NSDictionary * dict in array) {
                 
                 QYFocusContentList * model = [QYFocusContentList modelWithDictionary:dict];
@@ -159,6 +167,23 @@
     return 160;
 }
 
+#pragma UITableview delegate
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    QYFocusContentList *list=self.dataArray[indexPath.row];
+
+    
+    QYFocusDetailViewController *controller=[[QYFocusDetailViewController alloc]init];
+    controller.detailModel=nil;
+    controller.view.backgroundColor=[UIColor whiteColor];
+    [self.navigationController pushViewController:controller animated:YES];
+    [self loadDetailDataWithIndexPath:indexPath link:list.link];//获取详情数据到detailModel
+    self.focusDetailVC=controller;
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -166,7 +191,38 @@
 }
 
 
-
+-(void)loadDetailDataWithIndexPath:(NSIndexPath *)indexPath link:(NSString *)link{
+    
+    NSString * url = @"http://route.showapi.com/883-1";
+    
+    NSDate * date = [NSDate date];
+    
+    NSDateFormatter * formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyyMMddHHmmss"];
+    NSString * dateStr = [formatter stringFromDate:date];
+    
+    NSDictionary * parametes = @{
+                                 @"showapi_appid":@"16332",
+                                 @"showapi_sign":@"025a4f865952403eb0c8f1aa67c3c171",
+                                 @"showapi_timestamp":dateStr,
+                                 @"url":link,
+                                 };
+    
+    [QYNetManager getDataWithParam:parametes andPath:url andComplete:^(BOOL success, NSDictionary * result) {
+        
+        if (success) {
+            NSDictionary *dict = result[@"showapi_res_body"];
+            self.detailModel=[QYFocusDetail modelWithDictionary:dict];
+            NSLog(@"标题读取成功:%@",self.detailModel.title);
+            self.focusDetailVC.detailModel=self.detailModel;
+        }else {
+            NSLog(@"获取数据失败");
+//            [QYAlertViewController qyAlertViewControllerFrom:self andTitle:@"失败" message:@"请检查网络" cancleBtnName:@"确定" otherAction:nil handler:nil];
+        }
+        
+    }];
+    
+}
 @end
 
 
