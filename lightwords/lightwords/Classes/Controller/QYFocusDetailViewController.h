@@ -10,6 +10,5 @@
 #import "QYFocusDetail.h"
 
 @interface QYFocusDetailViewController : UIViewController
-@property (nonatomic,strong)QYFocusDetail *detailModel;
-
+@property (nonatomic,strong)NSString *link;
 @end

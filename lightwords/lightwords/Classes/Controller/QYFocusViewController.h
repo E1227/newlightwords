@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol QYFocusViewControllerProtocal <NSObject>
+
+
+@end
 @interface QYFocusViewController : UIViewController
 
 @end

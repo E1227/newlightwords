@@ -12,10 +12,21 @@
 @property (nonatomic,weak)UITextView *mainTextLabel;//正文
 @property (nonatomic,weak)UILabel *titleLabel;//标题
 @property (nonatomic,weak)UILabel *timeLabel;//发布时间
+@property (nonatomic,weak)NSArray<QYFocusDetailImageUrl *> *imageUrl;
+
+@property (nonatomic,strong)QYFocusDetail *detailModel;
 
 @end
 
 @implementation QYFocusDetailViewController
+
+-(NSString *)link{
+    if (_link==nil) {
+    NSLog(@"该详情页面无法显示");
+    }
+    return _link;
+}
+
 -(void)setDetailModel:(QYFocusDetail *)detailModel{
     _detailModel=detailModel;
     self.titleLabel.text=self.detailModel.title;
@@ -25,11 +36,13 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
+     self.view.backgroundColor=[UIColor whiteColor];
     [self setupSubviews];
     [self setSubviewsLayout];
 }
 //初始化子视图
 -(void)setupSubviews{
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem allocWithZone:NULL]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(loadDetailDataWithLink)];
     UILabel  *titleLabel=[[UILabel alloc]initWithFrame:CGRectZero];
     self.titleLabel=titleLabel;
     [self.view addSubview:titleLabel];
@@ -64,6 +77,36 @@
         make.height.equalTo(@300);
     }];
     
+    
+}
+//读取详情页面
+-(void)loadDetailDataWithLink{
+    
+    NSString * url = @"http://route.showapi.com/883-1";
+    
+    NSDate * date = [NSDate date];
+    NSDateFormatter * formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyyMMddHHmmss"];
+    NSString * dateStr = [formatter stringFromDate:date];
+    
+    NSDictionary * parametes = @{
+                                 @"showapi_appid":@"16332",
+                                 @"showapi_sign":@"025a4f865952403eb0c8f1aa67c3c171",
+                                 @"showapi_timestamp":dateStr,
+                                 @"url":self.link,
+                                 };
+    
+    [QYNetManager getDataWithParam:parametes andPath:url andComplete:^(BOOL success, NSDictionary * result) {
+        
+        if (success) {
+            NSDictionary *dict = result[@"showapi_res_body"];
+            self.detailModel=[QYFocusDetail modelWithDictionary:dict];
+        }else {
+            NSLog(@"获取数据失败");
+            //            [QYAlertViewController qyAlertViewControllerFrom:self andTitle:@"失败" message:@"请检查网络" cancleBtnName:@"确定" otherAction:nil handler:nil];
+        }
+        
+    }];
     
 }
 

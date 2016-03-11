@@ -92,6 +92,7 @@
 		C59952AF1C896A8C00A8B9B6 /* QYFocusNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C59952AE1C896A8C00A8B9B6 /* QYFocusNewsCell.m */; };
 		C59952B21C897CBF00A8B9B6 /* QYFocusContentList.m in Sources */ = {isa = PBXBuildFile; fileRef = C59952B11C897CBF00A8B9B6 /* QYFocusContentList.m */; };
 		C59952B51C897CD900A8B9B6 /* QYFocusImageUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = C59952B41C897CD900A8B9B6 /* QYFocusImageUrl.m */; };
+		C5E7FAA81C904603007516FF /* QYFocusCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E7FAA71C904603007516FF /* QYFocusCollectionViewCell.m */; };
 		FA64D21A1C8970E900C41C22 /* QYImageURL.m in Sources */ = {isa = PBXBuildFile; fileRef = FA64D2171C8970E900C41C22 /* QYImageURL.m */; };
 		FA64D21B1C8970E900C41C22 /* QYLatestNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA64D2191C8970E900C41C22 /* QYLatestNewsModel.m */; };
 		FA64D2211C8D99BA00C41C22 /* QYNewsClassPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA64D2201C8D99BA00C41C22 /* QYNewsClassPickView.m */; };
@@ -274,6 +275,8 @@
 		C59952B11C897CBF00A8B9B6 /* QYFocusContentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYFocusContentList.m; sourceTree = "<group>"; };
 		C59952B31C897CD900A8B9B6 /* QYFocusImageUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYFocusImageUrl.h; sourceTree = "<group>"; };
 		C59952B41C897CD900A8B9B6 /* QYFocusImageUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYFocusImageUrl.m; sourceTree = "<group>"; };
+		C5E7FAA61C904603007516FF /* QYFocusCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYFocusCollectionViewCell.h; sourceTree = SOURCE_ROOT; };
+		C5E7FAA71C904603007516FF /* QYFocusCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYFocusCollectionViewCell.m; sourceTree = SOURCE_ROOT; };
 		CE940EB6CC0F356F4F080403 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FA64D20C1C893B7300C41C22 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA64D2161C8970E900C41C22 /* QYImageURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYImageURL.h; sourceTree = "<group>"; };
@@ -425,6 +428,7 @@
 		C59196851C856E5E0072B3C9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C5E7FAA21C90417F007516FF /* Focus(焦点) */,
 				FA64D2221C8D9A0600C41C22 /* New(最新) */,
 			);
 			path = View;
@@ -782,6 +786,15 @@
 			name = "Focus(焦点)";
 			sourceTree = "<group>";
 		};
+		C5E7FAA21C90417F007516FF /* Focus(焦点) */ = {
+			isa = PBXGroup;
+			children = (
+				C5E7FAA61C904603007516FF /* QYFocusCollectionViewCell.h */,
+				C5E7FAA71C904603007516FF /* QYFocusCollectionViewCell.m */,
+			);
+			name = "Focus(焦点)";
+			sourceTree = "<group>";
+		};
 		FA64D2151C8970CC00C41C22 /* New(最新) */ = {
 			isa = PBXGroup;
 			children = (
@@ -930,6 +943,7 @@
 				C59197481C8574250072B3C9 /* UIButton+BackgroundColor.m in Sources */,
 				C59197371C8574250072B3C9 /* NSObject+AppInfo.m in Sources */,
 				C59197311C8574250072B3C9 /* NSDate+Reporting.m in Sources */,
+				C5E7FAA81C904603007516FF /* QYFocusCollectionViewCell.m in Sources */,
 				C59197461C8574250072B3C9 /* UIApplication+ApplicationSize.m in Sources */,
 				C59197301C8574250072B3C9 /* NSDate+Helper.m in Sources */,
 				C59197401C8574250072B3C9 /* NSString+Size.m in Sources */,
