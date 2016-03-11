@@ -27,12 +27,11 @@
     return _link;
 }
 
--(void)setDetailModel:(QYFocusDetail *)detailModel{
-    _detailModel=detailModel;
-    self.titleLabel.text=self.detailModel.title;
-    self.mainTextLabel.text=self.detailModel.content;
-    self.timeLabel.text=self.detailModel.time;
+-(void)setLink:(NSString *)link{
+    _link=link;
+    [self loadDetailDataWithLink];
 }
+
 
 -(void)viewDidLoad{
     [super viewDidLoad];
@@ -93,7 +92,7 @@
                                  @"showapi_appid":@"16332",
                                  @"showapi_sign":@"025a4f865952403eb0c8f1aa67c3c171",
                                  @"showapi_timestamp":dateStr,
-                                 @"url":self.link,
+                                 @"url":_link,
                                  };
     
     [QYNetManager getDataWithParam:parametes andPath:url andComplete:^(BOOL success, NSDictionary * result) {
@@ -101,6 +100,10 @@
         if (success) {
             NSDictionary *dict = result[@"showapi_res_body"];
             self.detailModel=[QYFocusDetail modelWithDictionary:dict];
+            self.titleLabel.text=self.detailModel.title;
+            self.mainTextLabel.text=self.detailModel.content;
+            self.timeLabel.text=self.detailModel.time;
+
         }else {
             NSLog(@"获取数据失败");
             //            [QYAlertViewController qyAlertViewControllerFrom:self andTitle:@"失败" message:@"请检查网络" cancleBtnName:@"确定" otherAction:nil handler:nil];
