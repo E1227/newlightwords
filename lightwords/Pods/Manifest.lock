@@ -14,6 +14,15 @@ PODS:
   - AFNetworking/Serialization (3.0.4)
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
+  - DKNightVersion (1.2):
+    - DKNightVersion/Core (= 1.2)
+    - DKNightVersion/CoreAnimation (= 1.2)
+    - DKNightVersion/UIKit (= 1.2)
+  - DKNightVersion/Core (1.2)
+  - DKNightVersion/CoreAnimation (1.2):
+    - DKNightVersion/Core
+  - DKNightVersion/UIKit (1.2):
+    - DKNightVersion/Core
   - Masonry (0.6.4)
   - MJRefresh (3.1.0)
   - ReactiveCocoa (2.5):
@@ -30,6 +39,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - DKNightVersion
   - Masonry
   - MJRefresh
   - ReactiveCocoa
@@ -38,6 +48,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
+  DKNightVersion: 7c8cf41002c6dfa8db3ca71274bf1a9aaeaa4ff7
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a

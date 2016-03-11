@@ -2,6 +2,7 @@ platform :ios,'7.0'
 inhibit_all_warnings!
 source 'https://github.com/CocoaPods/Specs.git'
 
+pod "DKNightVersion"
 pod 'AFNetworking'
 pod 'YYKit' 
 pod 'RESideMenu'

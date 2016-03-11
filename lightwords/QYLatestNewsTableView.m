@@ -1,27 +1,25 @@
 //
-//  QYLatestNewsCollectionViewCell.m
+//  QYLatestNewsTableView.m
 //  lightwords
 //
-//  Created by MacBook on 16/3/7.
+//  Created by MacBook on 16/3/11.
 //  Copyright © 2016年 com.qingyu. All rights reserved.
 //
 
-#import "QYLatestNewsCollectionViewCell.h"
+#import "QYLatestNewsTableView.h"
 #import <MJRefresh.h>
 #import "QYLatestNewsCell.h"
 
+@interface QYLatestNewsTableView ()<UITableViewDataSource,UITableViewDelegate>
 
-@interface QYLatestNewsCollectionViewCell ()<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic ,weak)UITableView *tableView;
 
-
+@property (nonatomic ,strong)NSMutableArray *dataArray;
 
 
 @end
 
-
-
-@implementation QYLatestNewsCollectionViewCell
-
+@implementation QYLatestNewsTableView
 
 - (NSMutableArray *)dataArray
 {
@@ -30,14 +28,12 @@
     }
     return _dataArray;
 }
-
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    if (self = [super initWithFrame:frame]) {
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         
-        UITableView * tableView = [[UITableView alloc]initWithFrame:self.bounds style:UITableViewStylePlain];
-        [self.contentView addSubview:tableView];
-        tableView.backgroundColor = [UIColor colorWithWhite:1 alpha:1];
+        UITableView * tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        [self.view addSubview:tableView];
+        tableView.dk_backgroundColorPicker = DKColorWithColors([UIColor whiteColor], [UIColor blackColor]);
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
         self.tableView = tableView;
@@ -45,12 +41,21 @@
         
         tableView.delegate = self;
         tableView.dataSource = self;
+
+        self.automaticallyAdjustsScrollViewInsets = NO;
+        
+        
     }
     return self;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor clearColor];
+    
+}
 #pragma mark <===========UITableViewDataSource===========>
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -108,7 +113,7 @@
             }
             
             [self.tableView reloadData];
-            [self.tableView.mj_header endRefreshing];            
+            [self.tableView.mj_header endRefreshing];
         }else {
             
             [QYAlertViewController showTitle:@"刷新失败" message:@"请检查网络"];

@@ -10,8 +10,7 @@
 #import "QYLatestNewsCell.h"
 #import "QYLatestNewsModel.h"
 #import "QYNewsClassPickView.h"
-#import "QYLatestNewsCollectionViewCell.h"
-
+#import "QYLatestNewsTableView.h"
 
 #define QYNesClassPickViewHeight 40
 
@@ -24,10 +23,34 @@
 @property (nonatomic ,strong)NSArray *newsClassArray;
 @property (nonatomic ,weak)UICollectionView *collectionView;
 
+@property (nonatomic ,strong)NSArray *tableViewArray;
+
 
 @end
 
 @implementation QYLatestNewsViewController
+
+- (NSArray *)tableViewArray
+{
+    if (_tableViewArray == nil) {
+        
+        NSMutableArray * array = [NSMutableArray array];
+        
+        for (NSDictionary *dict in self.newsClassArray) {
+            
+            QYLatestNewsTableView * tableView = [[QYLatestNewsTableView alloc]init];
+            
+            tableView.channelId = dict[@"channelId"];
+            
+            [array addObject:tableView];
+            
+        }
+        
+        _tableViewArray = array;
+        
+    }
+    return _tableViewArray;
+}
 
 - (NSArray *)newsClassArray
 {
@@ -238,7 +261,7 @@
     collectionView.dataSource = self;
     collectionView.delegate = self;
     collectionView.pagingEnabled = YES;
-    [collectionView registerClass:[QYLatestNewsCollectionViewCell class] forCellWithReuseIdentifier:@"UICollectionViewCell"];
+    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"UICollectionViewCell"];
     
 }
 
@@ -247,6 +270,8 @@
     [super viewDidLoad];
     
     [self loadSubViews];
+    
+    self.view.dk_backgroundColorPicker = DKColorWithColors([UIColor whiteColor], [UIColor blackColor]);
     
 }
 
@@ -281,10 +306,12 @@
 //构建单元格
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    QYLatestNewsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCell" forIndexPath:indexPath];
-
-    cell.channelId = self.newsClassArray[indexPath.row][@"channelId"];
-    [cell.tableView.mj_header beginRefreshing];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCell" forIndexPath:indexPath];
+    
+    QYLatestNewsTableView * tableView = self.tableViewArray[indexPath.row];
+    
+    [cell.contentView addSubview:tableView.view];
+    
     
     return cell;
 }

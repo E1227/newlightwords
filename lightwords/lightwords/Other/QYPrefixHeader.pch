@@ -22,6 +22,9 @@
 #import "QYAPI.h" //引入接口定义
 #import "QYAlertViewController.h"
 
+// 夜间模式
+#import <DKNightVersion.h>
+
 
 #pragma mark -- 颜色
 // 随机数
