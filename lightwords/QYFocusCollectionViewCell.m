@@ -29,6 +29,7 @@
         [self.contentView addSubview:tableview];
         tableview.delegate=self;
         tableview.dataSource=self;
+        self.tableView=tableview;
         tableview.backgroundColor=[UIColor whiteColor];
         tableview.separatorStyle=UITableViewCellSeparatorStyleNone;
         tableview.mj_header=[MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
@@ -85,7 +86,7 @@
     QYFocusContentList *list=self.dataArray[indexPath.row];
     NSString *link=list.link;
     QYFocusDetailViewController *detailVC=[[QYFocusDetailViewController alloc]init];
-    detailVC.link=link;
+    [detailVC setLink:link];
     self.pushDetailBlock(detailVC);
     //根据list取到link，根据link push到一个详情页面
 

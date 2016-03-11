@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "QYFocusDetail.h"
 
-@interface QYFocusDetailViewController : UIViewController
-@property (nonatomic,strong)NSString *link;
+@interface QYFocusDetailViewController : UIViewController{
+    NSString *_link;
+}
+-(void)setLink:(NSString *)link;
 @end
