@@ -52,7 +52,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor clearColor];
+    self.view.dk_backgroundColorPicker = DKColorWithColors([UIColor colorWithWhite:0.9 alpha:1], [UIColor blackColor]);
     
 }
 #pragma mark <===========UITableViewDataSource===========>

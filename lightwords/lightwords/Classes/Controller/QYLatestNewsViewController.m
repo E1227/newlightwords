@@ -11,6 +11,7 @@
 #import "QYLatestNewsModel.h"
 #import "QYNewsClassPickView.h"
 #import "QYLatestNewsTableView.h"
+#import "QYLatestNewsCollectionViewCell.h"
 
 #define QYNesClassPickViewHeight 40
 
@@ -261,7 +262,7 @@
     collectionView.dataSource = self;
     collectionView.delegate = self;
     collectionView.pagingEnabled = YES;
-    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"UICollectionViewCell"];
+    [collectionView registerClass:[QYLatestNewsCollectionViewCell class] forCellWithReuseIdentifier:@"QYLatestNewsCollectionViewCell"];
     
 }
 
@@ -306,11 +307,11 @@
 //构建单元格
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCell" forIndexPath:indexPath];
+    QYLatestNewsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"QYLatestNewsCollectionViewCell" forIndexPath:indexPath];
     
     QYLatestNewsTableView * tableView = self.tableViewArray[indexPath.row];
     
-    [cell.contentView addSubview:tableView.view];
+    cell.tableView = tableView;
     
     
     return cell;

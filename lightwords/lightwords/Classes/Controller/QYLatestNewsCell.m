@@ -39,7 +39,7 @@
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
-        self.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
+        self.backgroundColor = [UIColor clearColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self loadSubViews];
         
@@ -51,9 +51,10 @@
     
     UIView * container = [[UIView alloc]init];
     
+    
     [self.contentView addSubview:container];
     
-    container.backgroundColor = [UIColor whiteColor];
+    container.dk_backgroundColorPicker =  DKColorWithColors([UIColor whiteColor], [UIColor colorWithWhite:0.2 alpha:0.8]);;
     [container mas_makeConstraints:^(MASConstraintMaker *make) {
        
         make.top.left.equalTo(@(QYContainerMargin));
@@ -76,6 +77,7 @@
     }];
     
     UILabel * titleLabel = [self labelWithText:nil textColor:WColorFontTitle font:[UIFont systemFontOfSize:15]];
+    titleLabel.dk_textColorPicker = DKColorWithColors([UIColor grayColor], [UIColor whiteColor]);
     self.titleLabel = titleLabel;
     [container addSubview:titleLabel];
     

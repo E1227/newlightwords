@@ -25,7 +25,7 @@
 {
     if (self = [super initWithFrame:frame]) {
         
-        self.backgroundColor = [UIColor whiteColor];
+        self.dk_backgroundColorPicker = DKColorWithColors([UIColor whiteColor], [UIColor blackColor]);
         
         self.showsHorizontalScrollIndicator = NO;
         self.showsVerticalScrollIndicator = NO;
@@ -71,7 +71,7 @@
     UIView * indexView = [[UIView alloc]initWithFrame:CGRectMake(margin, self.height - 5, btnWidth, 5)];
     self.indexView = indexView;
     
-    indexView.backgroundColor = [UIColor greenColor];
+    indexView.dk_backgroundColorPicker = DKColorWithColors([UIColor greenColor], [UIColor grayColor]);
     
     [self addSubview:indexView];
     
@@ -87,7 +87,7 @@
     [self.currentBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     self.currentBtn.enabled = YES;
     
-    [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     btn.transform = CGAffineTransformMakeScale(1.1, 1.1);
     btn.enabled = NO;
     self.currentBtn = btn;

@@ -96,6 +96,7 @@
 		FA59D4CD1C925FDA003C77C1 /* QYMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA59D4CB1C925FD9003C77C1 /* QYMineViewController.m */; };
 		FA59D4CE1C925FDA003C77C1 /* QYMineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA59D4CC1C925FD9003C77C1 /* QYMineViewController.xib */; };
 		FA59D4D11C926DE4003C77C1 /* QYLatestNewsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA59D4D01C926DE4003C77C1 /* QYLatestNewsTableView.m */; };
+		FA59D4D41C9272D6003C77C1 /* QYLatestNewsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA59D4D31C9272D6003C77C1 /* QYLatestNewsCollectionViewCell.m */; };
 		FA64D21A1C8970E900C41C22 /* QYImageURL.m in Sources */ = {isa = PBXBuildFile; fileRef = FA64D2171C8970E900C41C22 /* QYImageURL.m */; };
 		FA64D21B1C8970E900C41C22 /* QYLatestNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA64D2191C8970E900C41C22 /* QYLatestNewsModel.m */; };
 		FA64D2211C8D99BA00C41C22 /* QYNewsClassPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA64D2201C8D99BA00C41C22 /* QYNewsClassPickView.m */; };
@@ -285,6 +286,8 @@
 		FA59D4CC1C925FD9003C77C1 /* QYMineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QYMineViewController.xib; sourceTree = "<group>"; };
 		FA59D4CF1C926DE4003C77C1 /* QYLatestNewsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYLatestNewsTableView.h; sourceTree = SOURCE_ROOT; };
 		FA59D4D01C926DE4003C77C1 /* QYLatestNewsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYLatestNewsTableView.m; sourceTree = SOURCE_ROOT; };
+		FA59D4D21C9272D6003C77C1 /* QYLatestNewsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYLatestNewsCollectionViewCell.h; sourceTree = SOURCE_ROOT; };
+		FA59D4D31C9272D6003C77C1 /* QYLatestNewsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYLatestNewsCollectionViewCell.m; sourceTree = SOURCE_ROOT; };
 		FA64D20C1C893B7300C41C22 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA64D2161C8970E900C41C22 /* QYImageURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYImageURL.h; sourceTree = "<group>"; };
 		FA64D2171C8970E900C41C22 /* QYImageURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYImageURL.m; sourceTree = "<group>"; };
@@ -819,6 +822,8 @@
 		FA64D2221C8D9A0600C41C22 /* New(最新) */ = {
 			isa = PBXGroup;
 			children = (
+				FA59D4D21C9272D6003C77C1 /* QYLatestNewsCollectionViewCell.h */,
+				FA59D4D31C9272D6003C77C1 /* QYLatestNewsCollectionViewCell.m */,
 				FA64D21F1C8D99BA00C41C22 /* QYNewsClassPickView.h */,
 				FA64D2201C8D99BA00C41C22 /* QYNewsClassPickView.m */,
 			);
@@ -991,6 +996,7 @@
 				C591968F1C856E5E0072B3C9 /* main.m in Sources */,
 				C591968D1C856E5E0072B3C9 /* AppDelegate.m in Sources */,
 				C591976C1C8574250072B3C9 /* UIView+Visuals.m in Sources */,
+				FA59D4D41C9272D6003C77C1 /* QYLatestNewsCollectionViewCell.m in Sources */,
 				C59197641C8574250072B3C9 /* UIView+Border.m in Sources */,
 				C591974A1C8574250072B3C9 /* UIButton+TouchAreaInsets.m in Sources */,
 				FA64D2211C8D99BA00C41C22 /* QYNewsClassPickView.m in Sources */,
